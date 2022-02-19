@@ -28,6 +28,7 @@ let server = http.createServer((req, res) => {
 
       // 添加部署脚本
       if(event === 'push') {
+        console.log('部署脚本自动执行')
         let payload = JSON.parse(body);
         // $ sh vue-cicd-front.sh
         // $ sh cicd-back.sh
@@ -39,7 +40,7 @@ let server = http.createServer((req, res) => {
         })
         child.stdout.on('end', (buffer) => {
           let log = Buffer.concat(buffers);
-          console.log('log:', log)
+          console.log('部署脚本执行结束-log:', log)
         })
       }
     });
