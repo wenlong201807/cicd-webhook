@@ -10,3 +10,17 @@ ls
 
 $ docker pull hello-world
 $ docker image ls
+
+
+- 半自动部署
+cd /opt/cicd-pro/cicd-webhook
+$ sh vue-back.sh
+
+-> 返回结果:  docker 自动执行后台项目部署如下:
+vue-back-container
+启动新容器
+57052aee101ace7291d891febc8ed3df73549f8c41202144671e252bbaa1ac0f
+
+- 手动测试
+$ curl http://localhost:6006/api/users
+-> 返回结果: [{"id":1,"name":"昌平66"},{"id":2,"name":"海淀66"}][

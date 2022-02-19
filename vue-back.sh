@@ -6,7 +6,9 @@ git reset --hard origin/main
 git clean -f 
 echo '拉取最新代码'
 git pull origin main
-echo '开始执行构建'
+echo '安装依赖包'
+npm install
+echo '开始执行构建docker镜像 -> 后台服务'
 docker build -t vue-back:1.0 .
 echo '停止旧容器并删除旧容器'
 docker stop vue-back-container

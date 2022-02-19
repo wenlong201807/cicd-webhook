@@ -33,3 +33,12 @@ $ vi ~/gitconfig
   p = push origin main
   pu = pull origin main
 # 生效时间稍有延迟
+
+
+- git配置
+$ git config -l
+$ git config --global user.name "dragon"
+$ git config --global user.email "1573511441@qq.com"
+$ git config --global pull.rebase false  # 合并（缺省策略）
+$ git config --global pull.rebase true   # 变基
+$ git config --global pull.ff only       # 仅快进 使用这种方式
