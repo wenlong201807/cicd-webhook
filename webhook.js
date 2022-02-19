@@ -10,6 +10,6 @@ let server = http.createServer((req, res) => {
   }
 });
 
-server.listen(6007, () => {
+server.listen(6000, () => {
   console.log(`webhook服务已经启动在6007端口了`);
 });
