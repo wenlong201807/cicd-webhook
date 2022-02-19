@@ -30,7 +30,7 @@ let server = http.createServer((req, res) => {
       // 以上正常，问题在这之下--------------------------------------------
       if (signature !== sign(body)) {
         console.log('两处的密码不同!')
-        return res.end("not Allowed");
+        // return res.end("not Allowed"); // TODO 这里有错误
       }
 
       // 添加部署脚本
