@@ -1,0 +1,26 @@
+
+- 服务器中启动 后端项目
+cd /opt/cicd-pro
+cd cicd-back 
+npm run server  # 启动服务器 http://47.98.181.79:6006/api/users
+
+- 服务器中启动 前端项目
+cd /opt/cicd-pro
+cd vue-cicd-front
+npm i
+npm run build  # 启动服务器 http://47.98.181.79:6008
+打包生成的文件 /opt/cicd-pro/vue-cicd-front/dist
+- 前端项目需要使用nginx代理
+新增nginx配置文件 
+/etc/nginx/conf.d/vue-cicd-front.conf
+
+- 重启nginx
+检查配置语法是否正确
+1 修改了nginx配置文件需要检查配置是否正确，
+nginx -tc /etc/nginx/nginx.conf
+-> nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+-> nginx: configuration file /etc/nginx/nginx.conf test is successful
+2 关闭原来的配置
+nginx -s stop -c /etc/nginx/nginx.conf
+3 重启nginx配置
+nginx -c /etc/nginx/nginx.conf

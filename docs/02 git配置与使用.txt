@@ -1,0 +1,25 @@
+
+- 使用命令行登陆linux
+$ ssh root@47.98.181.79
+输入密码
+
+- 在linux中生成公钥
+ssh-keygen -t rsa -C "1573511441@qq.com"
+接着按三次回车 即生成成功
+
+- 将公钥保存到github -> settings -> ssh&key
+cd ～/.ssh
+ls
+cat id_rsa.pub
+
+- 安装git
+yum install git
+
+- 版本检查
+git --version
+
+- 克隆项目 
+- 项目放置位置 /opt
+cd /opt/**
+
+git clone git@github.com:wenlong201807/vue-cicd-front.git

@@ -1,0 +1,33 @@
+
+- yum install nvm
+- num install stable
+
+- 服务器安装 npm i -g nrm 切换安装源
+
+- 服务器中安装docker[成功]
+yum install -y yum-utils device-mapper-persistent-data lvm2
+yum-config-manager \
+    --add-repo \
+    https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
+yum install -y docker-ce docker-ce-cli containerd.io
+
+- 检查docker是否安装成功
+docker -v
+
+- 阿里云加速
+mkdir -p /etc/docker
+
+# 将此文件内容复制到命令行
+tee /etc/docker/daemon.json <<- 'EOF'
+{
+  "registry-mirrors": ["https://fwvjnv59.mirror.aliyun.com"]
+}
+EOF
+
+-  重载所有修改过的配置文件
+systemctl daemon-reload
+systemctl restart docker
+
+- 切换docker淘宝源
+nrm use taobao
+# 返回 Registry has been set to: https://registry.npmmirror.com/

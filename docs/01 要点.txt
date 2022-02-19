@@ -1,12 +1,9 @@
 
 - 47.98.181.79
+- 自动化配置系统，各个项目都需要配置
+
+
 - 找到对应的仓库 -> Settings -> Webhooks -> Add webhook
 http://47.98.181.79:6000/webhook
-
-- 生成公钥
-ssh-keygen -t rsa -C "1573511441@qq.com"
-
-- 项目放置位置 /opt/cicd-pro
-
-
-- 服务器安装 npm i -g nrm 切换安装源
+Content type: application/json
+密码 ————————
