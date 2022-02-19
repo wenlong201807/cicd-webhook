@@ -10,8 +10,8 @@ function sign(body) {
   return r;
 }
 let server = http.createServer((req, res) => {
-  console.log("触发钩子自动更新执行:", req.method, req.url, req.headers);
-  console.log("触发钩子自动更新时req.headers:", req.headers);
+  // console.log("触发钩子自动更新执行:", req.method, req.url);
+  // console.log("触发钩子自动更新时req.headers:", req.headers);
   res.setHeader("Content-Type", "application/json;charset=utf-8");
 
   if (req.method === "POST" && req.url === "/webhook") {
@@ -21,7 +21,7 @@ let server = http.createServer((req, res) => {
     });
 
     req.on("end", (buffer) => {
-      console.log('---->req.on("end"<---')
+      // console.log('---->req.on("end"<---')
       let body = Buffer.concat(buffers);
       let event = req.headers["x-github-event"]; // event=push 事件
       // github请求来的时候，要传递请求体，
@@ -29,15 +29,15 @@ let server = http.createServer((req, res) => {
       let signature = req.headers["x-hub-signature"];
       // 以上正常，问题在这之下--------------------------------------------
       if (signature !== sign(body)) {
-        console.log('两处的密码不同!')
+        console.log('两处的密码不同???')
         // return res.end("not Allowed"); // TODO 这里有错误
       }
 
       // 添加部署脚本
       if(event == 'push') {
-        console.log('部署脚本自动执行')
+        // console.log('部署脚本自动执行')
         let payload = JSON.parse(body);
-        console.log('部署脚本自动执行payload: ', payload);
+        // console.log('部署脚本自动执行payload: ', payload);
         // $ sh vue-cicd-front.sh
         // $ sh cicd-back.sh
         let child = spawn('sh', [`./${payload.repository.name}.sh`]);

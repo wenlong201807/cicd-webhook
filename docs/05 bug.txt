@@ -1,12 +1,29 @@
 
-- 
+- 错误定位1
 -> 两处的密码不同!
 5|webhook  | webhook-sign ->:  
 'sha1=2722da23f7e0a67bea2847b0be26a025ef8f7e1b'
 'x-hub-signature': 
 'sha1=ddbc4fb3497eca750fab148ce052252ed523f5fd',
 
+- 错误定位2
+邮件发送失败
+[log信息]
+// 邮件发送失败 Error: Invalid login: 535 Login Fail. Please enter your authorization code to login.
+// More information in http://service.mail.qq.com/cgi-bin/help?subtype=1&&id=28&&no=1001256
++ 排查情况
+参考: https://blog.csdn.net/qq_35078688/article/details/115263192
+vi  /etc/mail.rc
+# 在文件最后添加的信息的格式
 
+set from=自己的QQ@qq.com
+set smtp=smtp.qq.com
+set smtp-auth-user=自己的QQ@qq.com
+set smtp-auth-password=自己的授权码
+
+# Linux实现邮件通信 SMTP 协议
+- 邮件发送完整版参考 https://blog.csdn.net/qq_35078688/article/details/115253608
+- 需要继续测试看看效果
 
 
 
