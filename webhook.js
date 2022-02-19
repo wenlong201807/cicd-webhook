@@ -8,6 +8,8 @@ function sign(body) {
 }
 let server = http.createServer((req, res) => {
   console.log("触发钩子自动更新执行:", req.method, req.url);
+  res.setHeader("Content-Type", "application/json;charset=utf-8");
+
   if (req.method === "POST" && req.url === "/webhook") {
     let buffers = [];
     req.on("data", (buffer) => {
@@ -23,8 +25,6 @@ let server = http.createServer((req, res) => {
       if (signature !== sign(body)) {
         return res.end("not Allowed");
       }
-      res.setHeader("Content-Type", "application/json;charset=utf-8");
-      res.end(JSON.stringify({ ok: true }));
 
       // 添加部署脚本
       if(event === 'push') {
@@ -43,6 +43,8 @@ let server = http.createServer((req, res) => {
           console.log('部署脚本执行结束-log:', log)
         })
       }
+
+      res.end(JSON.stringify({ ok: true }));
     });
   } else {
     res.end("not found");
