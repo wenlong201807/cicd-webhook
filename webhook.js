@@ -1,4 +1,5 @@
 let http = require("http");
+let {spawn} = require("child_process");
 let crypto = require("crypto");
 const SECRET = "zwl@157351";
 
@@ -22,10 +23,26 @@ let server = http.createServer((req, res) => {
       if (signature !== sign(body)) {
         return res.end("not Allowed");
       }
+      res.setHeader("Content-Type", "application/json;charset=utf-8");
+      res.end(JSON.stringify({ ok: true }));
+
+      // 添加部署脚本
+      if(event === 'push') {
+        let payload = JSON.parse(body);
+        // $ sh vue-cicd-front.sh
+        // $ sh cicd-back.sh
+        let child = spawn('sh', [`./${payload.repository.name}.sh`]);
+
+        let buffers = [];
+        child.stdout.on('data', (buffer) => {
+          buffers.push(buffer)
+        })
+        child.stdout.on('end', (buffer) => {
+          let log = Buffer.concat(buffers);
+          console.log('log:', log)
+        })
+      }
     });
-    // res.setHeader('Access-Control-Allow-Origin','*');
-    res.setHeader("Content-Type", "application/json;charset=utf-8");
-    res.end(JSON.stringify({ ok: true }));
   } else {
     res.end("not found");
   }

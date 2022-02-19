@@ -6,8 +6,8 @@ git reset --hard origin/main
 git clean -f 
 echo '拉取最新代码'
 git pull origin main
-echo '安装依赖包'
-npm install
+echo '安装依赖包 [暂时跳过]'
+# npm install
 echo '编译'
 npm run build
 echo '开始执行构建docker镜像 -> 前台页面'
