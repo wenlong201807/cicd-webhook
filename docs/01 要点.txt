@@ -7,3 +7,6 @@
 http://47.98.181.79:6000/webhook
 Content type: application/json
 密码 ————————
+
+
+npm i -g pm2 守护进程
