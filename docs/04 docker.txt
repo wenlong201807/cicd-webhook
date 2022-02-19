@@ -30,3 +30,4 @@ $ docker container ps
 
 - 删除docker指定[CONTAINER ID] 容器  [CONTAINER ID] -> 57052aee101a
 $ docker container rm 57052aee101a
+$ docker container rm 57052aee101a a02cfc61d26b -f

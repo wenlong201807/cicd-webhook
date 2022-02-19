@@ -11,6 +11,9 @@ Content type: application/json
 
 npm i -g pm2 守护进程
 
+- 查看日志
+pm2 log
+
 - webhook 官网指南
 https://docs.github.com/en/developers/webhooks-and-events/webhooks/about-webhooks
 - webhook-event 指南
