@@ -15,3 +15,12 @@ npm i -g pm2 守护进程
 https://docs.github.com/en/developers/webhooks-and-events/webhooks/about-webhooks
 - webhook-event 指南
 https://docs.github.com/en/developers/webhooks-and-events/webhooks/webhook-events-and-payloads
+
+- linux
+
+- 查看端口占用情况
+# 方法一
+$ netstat  -anp  |grep  6008
+
+# 方法二
+$ netstat  -nultp

@@ -23,4 +23,10 @@ vue-back-container
 
 - 手动测试
 $ curl http://localhost:6006/api/users
--> 返回结果: [{"id":1,"name":"昌平66"},{"id":2,"name":"海淀66"}][
+-> 返回结果: [{"id":1,"name":"昌平66"},{"id":2,"name":"海淀66"}]
+
+- 查看当前docker 容器状态
+$ docker container ps
+
+- 删除docker指定[CONTAINER ID] 容器  [CONTAINER ID] -> 57052aee101a
+$ docker container rm 57052aee101a
