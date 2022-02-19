@@ -1,0 +1,12 @@
+docker 简单用法
+
+任意目录下皆可
+
+- 查看版本
+docker --version
+
+ls
+[root@spark-2022 ~]#
+
+$ docker pull hello-world
+$ docker image ls
