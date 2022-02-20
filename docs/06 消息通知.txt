@@ -1,0 +1,26 @@
+
+
+- 微信通知 -> 微信公众/开放平台开发工具
+[node-wchat](https://www.npmjs.com/package/node-wchat)
+参考: https://github.com/nswbmw/node-wechat/blob/master/index.js
+完整版参考: https://github.com/node-webot/wechat
+nodejs微信消息收发接口的实现: https://www.jianshu.com/p/632b57a4cbf7
+npm wechaty: https://www.npmjs.com/package/wechaty
+
+
+
+- 短信通知
+首先安装node.js(见相关文档)
+npm install cnpm -g
+cnpm install socket.io
+npm install url
+注意事项：端口号
+
+NODE.JS如何开发短信通知短信接口: https://blog.csdn.net/m0_61684517/article/details/122684954
+
+
+npm install forever-monitor
+npm install forever -g
+
+- qq邮件通知
+

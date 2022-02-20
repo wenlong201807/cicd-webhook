@@ -2,7 +2,7 @@ let http = require("http");
 let {spawn} = require("child_process");
 let crypto = require("crypto");
 const sendMail = require("./sendMail");
-const SECRET = "zwl@157351";
+const SECRET = "random code";
 
 function sign(body) {
   const r = `sha1=` + crypto.createHash("sha1", SECRET).update(body).digest("hex");
