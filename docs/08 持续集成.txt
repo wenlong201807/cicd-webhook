@@ -1,0 +1,10 @@
+- 持续集成
+1 持续集成 continuous integration CI :
+  代码合并、构建、部署、测试在一起。不断执行这个过程并对结果进行反馈
+2 持续部署 continuous deloyment CD:
+  部署到生成环境
+3 持续交付 continuous delivery CD:
+  DevOps 是一个完整的面向IT运维的工作流，以it自动化以及持续集成，持续部署为基础，来优化程式开发、测试、系统运维等所有环节。
+
+- 持续集成仓库 https://gitee.com/zhufengpeixun/reactci
+- 高质量仓库 https://github.com/zhufengnodejs
